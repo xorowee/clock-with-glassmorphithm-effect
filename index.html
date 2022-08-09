@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="clock">
+        <img src="https://dl.dropbox.com/s/f3b3lyanili7zl2/clock%20template-01.svg?raw=1">
+        <div class="hour hand" id="hour"></div>
+        <div class="minute hand" id="minute"></div>
+        <div class="seconds hand" id="seconds"></div>
+  </div>
+  <script>
+    const hour = document.getElementById("hour");
+const minute = document.getElementById("minute");
+const seconds = document.getElementById("seconds");
+
+const set_clock = setInterval(
+    function clock(){
+        const date_now = new Date();
+        const hr = date_now.getHours();
+        const min = date_now.getMinutes();
+        const sec = date_now.getSeconds();
+
+        const calc_hr = (hr * 30) + (min / 2);
+        const calc_min =    (min * 6)  ;
+        const calc_sec = sec * 6 ;
+
+        hour.style.transform = "rotate(" + calc_hr + "deg)";
+        minute.style.transform = "rotate(" + calc_min + "deg)";
+        seconds.style.transform = "rotate(" + calc_sec + "deg)";
+    }, 1000);
+  </script>
+</body>
+</html>
